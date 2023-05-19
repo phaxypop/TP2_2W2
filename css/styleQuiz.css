@@ -1,0 +1,322 @@
+/* Palette de couleur utilisée */
+/* ========================================================================== */
+/* =============    Syphax Mokraoui Gr:04    ========= */
+:root {
+  --succes-texte: rgb(0, 179, 161);
+  --echec-texte: rgb(222, 130, 0);
+  --couleur-pale: rgb(228, 254, 111);
+}
+
+/* Animation du titre de l'intro*/
+/* ========================================================================== */
+@keyframes monter-mot {
+  from {
+    transform: translateY(60vh);
+  }
+
+  to {
+    transform: translateY(0vh);
+  }
+}
+
+@keyframes etirer-mot {
+}
+
+.anim-titre-intro {
+  font-family: "Train One", cursive;
+  text-align: center;
+  font-size: 8rem;
+  animation: monter-mot 350ms,
+    etirer-mot 1250ms 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/* Animation du choix de réponse */
+/* ========================================================================== */
+@keyframes animer-reponse-succes {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animer-reponse-echec {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.2);
+  }
+}
+/* Compléter les deux règles de style suivantes pour "réponse bonne" et 
+"réponse eronnée" */
+div.choix:nth-child(1).reponse-succes {
+  /* Assosier l'animation adéquate (ci-dessus) */
+  animation: animer-reponse-succes 1s;
+  /* Changer couleur de texte*/
+  color: var(--succes-texte);
+  /* Appliquer des transitions aux couleurs texte */
+  transition: background-color, color 1s;
+}
+div.choix:nth-child(2).reponse-succes {
+  /* Assosier l'animation adéquate (ci-dessus) */
+  animation: animer-reponse-succes 1s;
+  /* Changer couleur de texte*/
+  color: var(--succes-texte);
+  /* Appliquer des transitions aux couleurs texte */
+  transition: background-color, color 1s;
+}
+div.choix:nth-child(3).reponse-succes {
+  /* Assosier l'animation adéquate (ci-dessus) */
+  animation: animer-reponse-succes 1s;
+  /* Changer couleur de texte*/
+  color: var(--succes-texte);
+  /* Appliquer des transitions aux couleurs texte */
+  transition: background-color, color 1s;
+}
+
+div.choix:nth-child(1).reponse-echec {
+  /* Assosier l'animation adéquate (ci-dessus) */
+  animation: animer-reponse-echec 4s;
+  /* Changer couleur de texte*/
+  color: var(--echec-texte);
+  /* Appliquer des transitions aux couleurs texte */
+  transition: background-color, color 1s;
+}
+div.choix:nth-child(2).reponse-echec {
+  animation: animer-reponse-echec 4s;
+  /* Changer couleur de texte*/
+  color: var(--echec-texte);
+  /* Appliquer des transitions aux couleurs texte */
+  transition: background-color, color 1s;
+}
+div.choix:nth-child(3).reponse-echec {
+  /* Assosier l'animation adéquate (ci-dessus) */
+  animation: animer-reponse-echec 4s;
+  /* Changer couleur de texte*/
+  color: var(--echec-texte);
+  /* Appliquer des transitions aux couleurs texte */
+  transition: background-color, color 1s;
+}
+
+/* Mise en page des questions du quiz
+============================================================*/
+main.quiz {
+  /*Conteneur flex en colonne*/
+  flex-direction: column;
+
+  /*N'est pas affiché au démarrage*/
+  display: none;
+}
+
+main.quiz > header {
+  font-family: "Righteous", cursive;
+  font-size: 4rem;
+  padding-bottom: 3rem;
+
+  /* Position afin de pouvoir animer la barre d'avancement */
+  position: relative;
+}
+
+/* La barre qui illustre l'avancement du quiz */
+.barre-avancement {
+  width: 0vw;
+  height: 3vh;
+  background-color: var(--couleur-pale);
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+section .titre-question {
+  font-size: 1.5rem;
+  width: 90%;
+  margin-top: 1rem;
+}
+
+section .les-choix-de-reponse {
+  width: 90vw;
+  /*Étirement comme item flex*/
+  flex: 1 1 auto;
+  /*Conteneur flex en colonne*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+section .les-choix-de-reponse.desactiver {
+  pointer-events: none;
+}
+
+div.choix:nth-child(1) {
+  font-size: 2rem;
+
+  font-weight: bold;
+  width: 30vmin;
+  height: 30vmin;
+  line-height: 30vmin;
+  color: var(--couleur-pale);
+  border: 4px solid var(--couleur-pale);
+  position: relative; /*Pour le pseudo-élément*/
+  /*Curseur personnalisé*/
+  cursor: url(../media/tlou_curseur.png) 65 65, pointer;
+  transition: transform 0.5s;
+}
+div.choix:nth-child(2) {
+  font-size: 2rem;
+
+  font-weight: bold;
+  width: 30vmin;
+  height: 30vmin;
+  line-height: 30vmin;
+  color: var(--couleur-pale);
+  border: 4px solid var(--couleur-pale);
+  position: relative; /*Pour le pseudo-élément*/
+  /*Curseur personnalisé*/
+  cursor: url(../media/tlou_curseur.png) 65 65, pointer;
+  transition: transform 0.5s;
+}
+div.choix:nth-child(3) {
+  font-size: 2rem;
+
+  font-weight: bold;
+  width: 30vmin;
+  height: 30vmin;
+  line-height: 30vmin;
+  color: var(--couleur-pale);
+  border: 4px solid var(--couleur-pale);
+  position: relative; /*Pour le pseudo-élément*/
+  /*Curseur personnalisé*/
+  cursor: url(../media/tlou_curseur.png) 65 65, pointer;
+  transition: transform 0.5s;
+}
+
+/*Mettre l'image en avant plan avec un pseudo-élément*/
+div.choix:nth-child(1)::before {
+  position: absolute;
+  content: "";
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  background-image: url("../media/tlou_728x410.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -100;
+}
+div.choix:nth-child(2)::before {
+  position: absolute;
+  content: "";
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  background-image: url("../media/tlou_1024x768.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -100;
+}
+div.choix:nth-child(3)::before {
+  position: absolute;
+  content: "";
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  background-image: url("../media/tlou_1280x800.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -100;
+}
+
+div.choix:nth-child(1):hover,
+div.choix:nth-child(1):active {
+  transform: scale(1.2) rotate(45deg);
+}
+div.choix:nth-child(2):hover,
+div.choix:nth-child(2):active {
+  transform: scale(1.2);
+}
+div.choix:nth-child(3):hover,
+div.choix:nth-child(3):active {
+  transform: scale(1.2) rotate(-45deg);
+}
+
+main.fin {
+  font-size: 5rem;
+  /*Conteneur flex en colonne*/
+  flex-direction: column;
+  /*Non affiché au démarrage*/
+  display: none;
+}
+
+@keyframes animer-resultat {
+  from {
+    transform: translateX(-500%) scale(0.2);
+  }
+  50% {
+    transform: translateX(500%) scale(1);
+  }
+  to {
+    transform: translateX(0%) scale(1.8);
+  }
+}
+
+main.fin .resultat {
+  display: flex;
+  flex-direction: row;
+  width: 20rem;
+  height: 10rem;
+  color: #b7b400;
+  transform: scale(0) rotateZ(0);
+  animation: animer-resultat 3s forwards;
+}
+
+main.fin .btn-recommencer {
+  cursor: pointer;
+  font-size: 3rem;
+  margin-top: 2rem;
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+/* Ajustement pour les écrans de taille moyenne et plus grande
+=============================================================== */
+@media screen and (min-width: 576px) {
+  body {
+    background-image: url(../media/tlou_telephone_paysage.jpg);
+  }
+}
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url(../media/tlou_720x1280.jpg);
+  }
+  section .les-choix-de-reponse {
+    /*Conteneur flex en rangée*/
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  body {
+    background-image: url(../media/tlou-1920-1080.jpg);
+  }
+  main.quiz > header {
+    font-size: 2rem;
+  }
+
+  section .titre-question {
+    font-size: 4rem;
+  }
+
+  div.choix {
+    font-size: 3rem;
+    width: 40vmin;
+    height: 40vmin;
+    line-height: 40vmin;
+  }
+}

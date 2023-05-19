@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+  <head>
+    <title>TLOU quiz</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="favicon.png" sizes="all" />
+
+    <!-- Ajustement de la taille du viewport-->
+    <!-- Syphax Mokraoui Gr:04 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Polices de caractères utilisées-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Polices d'icônes utilisées-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Références aux CSS-->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/styleBase.css" />
+    <link rel="stylesheet" href="css/styleQuiz.css" />
+    <link rel="stylesheet" href="css/animTitre.css" />
+  </head>
+
+  <body>
+    <main class="intro">
+      <!-- Code inspiré de alvarotigo lien: https://codepen.io/alvarotrigo/pen/xxLvyOG -->
+      <div class="anim-titre-intro">
+        <span style="--i: 1">T</span>
+        <span style="--i: 2">H</span>
+        <span style="--i: 3">E</span>
+        <span style="--i: 4"></span>
+        <span style="--i: 5"></span>
+        <span style="--i: 6">L</span>
+        <span style="--i: 7">A</span>
+        <span style="--i: 8">S</span>
+        <span style="--i: 9">T</span>
+        <span style="--i: 10"></span>
+        <span style="--i: 11">O</span>
+        <span style="--i: 12">F</span>
+        <span style="--i: 13"></span>
+        <span style="--i: 14">U</span>
+        <span style="--i: 15">S</span>
+        <span style="--i: 16"></span>
+        <span style="--i: 17">Q</span>
+        <span style="--i: 18">U</span>
+        <span style="--i: 19">I</span>
+        <span style="--i: 20">Z</span>
+        <span style="--i: 21">!</span>
+      </div>
+      <footer></footer>
+    </main>
+
+    <main class="quiz">
+      <header>
+        TLOU quiz
+        <div class="barre-avancement"></div>
+      </header>
+
+      <section>
+        <div class="titre-question"></div>
+        <div class="les-choix-de-reponse"></div>
+      </section>
+    </main>
+
+    <main class="fin">
+      <!-- La section contenant le score sera insérée dynamiquement ici -->
+      <span class="material-icons btn-recommencer">replay</span>
+    </main>
+
+    <!-- Chargement des scripts -->
+    <script src="js/questionsQuiz.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
